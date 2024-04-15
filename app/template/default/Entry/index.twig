@@ -123,23 +123,25 @@ file that was distributed with this source code.
           <script>
     document.addEventListener('DOMContentLoaded', function() {
         let mobileNumberInput = document.querySelector('input[name="mobile_number"]');
-        let checkButton = document.getElementById('check-button'); // ここで初期化
+        let checkButton = document.getElementById('check-button');
         let errorMessageDiv = document.getElementById('error-message');
 
-        console.log(checkButton); // これでエラーが発生しなくなります
-
-        checkButton.addEventListener('click', function() {
-            const regex = /^\d{3}-\d{4}-\d{4}$/; // 携帯番号の形式: 090-1234-5678
-            if (!regex.test(mobileNumberInput.value)) {
-                // フォームの検証が失敗した場合、エラーメッセージ関数を呼び出し
-                errorMessage('携帯電話番号の形式が正しくありません。');
-            } else {
-                // フォームの検証が成功した場合、エラーメッセージをクリア
-                mobileNumberInput.setCustomValidity('');
-                errorMessageDiv.textContent = '';
-                errorMessageDiv.style.backgroundColor = ''; // 背景色をクリア
-            }
-        });
+        if (checkButton) { // checkButtonがnullでないことを確認
+            checkButton.addEventListener('click', function() {
+                const regex = /^\d{3}-\d{4}-\d{4}$/; // 携帯番号の形式: 090-1234-5678
+                if (!regex.test(mobileNumberInput.value)) {
+                    // フォームの検証が失敗した場合、エラーメッセージ関数を呼び出し
+                    errorMessage('携帯電話番号の形式が正しくありません。');
+                } else {
+                    // フォームの検証が成功した場合、エラーメッセージをクリア
+                    mobileNumberInput.setCustomValidity('');
+                    errorMessageDiv.textContent = '';
+                    errorMessageDiv.style.backgroundColor = ''; // 背景色をクリア
+                }
+            });
+        } else {
+            console.error('check-button element not found');
+        }
     });
     function errorMessage(message) {
         let errorMessageDiv = document.getElementById('error-message');
