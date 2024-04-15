@@ -95,6 +95,10 @@ class EntryType extends AbstractType
                         'value' => date('Y-m-d', strtotime('-1 day')),
                         'message' => 'form_error.select_is_future_or_now_date',
                     ]),
+                new Assert\Regex([
+                    'pattern' => "/^(\+81)?[ -]?(\d{2,4})[ -]?(\d{4})[ -]?(\d{4})$/'",
+                   'message' => '日本式で書いて',
+                ])
                 ],
             ])
             ->add('sex', SexType::class, [
