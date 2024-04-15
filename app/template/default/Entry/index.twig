@@ -139,9 +139,10 @@ file that was distributed with this source code.
                                     });
                                 });
 
-                                
+                            
                     <script>
                         document.addEventListener('DOMContentLoaded', function() {
+                            console.log($123); 
                             let mobileNumberInput = document.querySelector('input[name="mobile_number"]');
                             let checkButton = document.getElementById('check-button');
                             let errorMessageDiv = document.getElementById('error-message');
@@ -159,19 +160,20 @@ file that was distributed with this source code.
                                 }
                             });
                         });
-
                         function errorMessage(message) {
                             let errorMessageDiv = document.getElementById('error-message');
                             let mobileNumberInput = document.querySelector('input[name="mobile_number"]');
 
                             // エラーメッセージと背景色を設定
-                            mobileNumberInput.setCustomValidity(message);
-                            errorMessageDiv.textContent = message;
+                            mobileNumberInput.setCustomValidity('正しい携帯電話番号を入力してください。 (例: 090-1234-5678)');
+                            errorMessageDiv.textContent = '正しい携帯電話番号を入力してください。 (例: 090-1234-5678)';
                             errorMessageDiv.style.backgroundColor = 'red'; // エラーメッセージの背景色を赤に設定
                         }
+                    
+                    
+                    
                     </script>
-
-                                  
+                        
                         <dl>
                             <dt>
                                 {{ form_label(form.email, 'メールアドレス', { 'label_attr': { 'class': 'ec-label' }}) }}
