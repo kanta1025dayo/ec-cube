@@ -119,27 +119,7 @@ file that was distributed with this source code.
                                 </div>
                             </dd>
                         </dl>
-                       
-                        <script>
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    let mobileNumberInput = document.querySelector('input[name="mobile_number"]');
-                                    let checkButton = document.getElementById('check-button');
-                                    let errorMessageDiv = document.getElementById('error-message'); // ここで定義
-
-                                    checkButton.addEventListener('click', function() {
-                                        const regex = /^\d{3}-\d{4}-\d{4}$/; // 携帯番号の形式: 090-1234-5678
-                                        if (!regex.test(mobileNumberInput.value)) {
-                                            // フォームの検証が失敗した場合
-                                            errorMessage('携帯電話番号の形式が正しくありません。'); // エラーメッセージを表示
-                                        } else {
-                                            // フォームの検証が成功した場合
-                                            mobileNumberInput.setCustomValidity('');
-                                            errorMessageDiv.textContent = ''; // エラーメッセージをクリア
-                                        }
-                                    });
-                                });
-
-                            
+                                               
                     <script>
                         document.addEventListener('DOMContentLoaded', function() {
                             console.log($123); 
@@ -169,9 +149,6 @@ file that was distributed with this source code.
                             errorMessageDiv.textContent = '正しい携帯電話番号を入力してください。 (例: 090-1234-5678)';
                             errorMessageDiv.style.backgroundColor = 'red'; // エラーメッセージの背景色を赤に設定
                         }
-                    
-                    
-                    
                     </script>
                         
                         <dl>
