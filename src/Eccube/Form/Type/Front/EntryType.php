@@ -107,7 +107,7 @@ class EntryType extends AbstractType
                         'label' => null,
                         'mapped' => false,
                         'constraints' => [
-                            new Assert\NotBlank(),
+                            new Assert\NotBlank(['message' => '同意してください。']),
                         ],
                     ]);
             }
