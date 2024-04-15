@@ -81,7 +81,14 @@ file that was distributed with this source code.
                                 {{ form_widget(form.phone_number, { type : 'hidden' }) }}
                             </dd>
                         </dl>
-                       
+                        <dl>
+                            <dt>
+                                {{ form_label(form.mobile_number, '携帯電話番号', { 'label_attr': { 'class': 'ec-label' }}) }}
+                            </dt>
+                            <dd>{{ form.mobile_number.vars.data }}
+                                {{ form_widget(form.mobile_number, { type : 'hidden' }) }}
+                            </dd>
+                        </dl>
                         <dl>
                             <dt>
                                 {{ form_label(form.email, 'メールアドレス', {'label_attr': {'class': 'ec-label'}}) }}
