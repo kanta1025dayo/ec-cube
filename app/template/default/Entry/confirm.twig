@@ -89,7 +89,24 @@ file that was distributed with this source code.
                                 {{ form_widget(form.mobile_number, { type : 'hidden' }) }}
                             </dd>
                         </dl>
-                      
+                     
+    <script>
+        // 携帯電話番号のバリデーション
+        let mobileNumberInput = document.querySelector('input[name="mobile_number"]');
+        
+        mobileNumberInput.addEventListener('input', function(e) {
+            // 日本の携帯電話番号の形式: 090-1234-5678
+            let regex = /^0\d{2}-\d{4}-\d{4}$/;
+            
+            if (!regex.test(this.value)) {
+                this.setCustomValidity('正しい携帯電話番号を入力してください。 (例: 090-1234-5678)');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    </script>
+
+
 
                         <dl>
                             <dt>
