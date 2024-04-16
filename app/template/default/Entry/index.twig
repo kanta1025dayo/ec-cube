@@ -109,17 +109,17 @@ file that was distributed with this source code.
                             </dd>
                         </dl>
                        <dl>
-        <dt>携帯電話番号:</dt>
-        <dd>
-            <div class="ec-telInput" id="mobile-number-container">
-                <!-- 仮のinputタグを設置、name属性を追加 -->
-                <input type="text" name="mobile_number" id="mobile-number-input">
-                <div id="error-message"></div>
-            </div>
-        </dd>
-    </dl>
-    <!-- 検証ボタンを追加 -->
-    <button id="check-button">番号検証</button>
+                            <dt>携帯電話番号:</dt>
+                            <dd>
+                                <div class="ec-telInput" id="mobile-number-container">
+                                    <!-- 仮のinputタグを設置、name属性を追加 -->
+                                    <input type="text" name="mobile_number" id="mobile-number-input">
+                                    <div id="error-message"></div>
+                                </div>
+                            </dd>
+                        </dl>
+                        <!-- 検証ボタンを追加 -->
+                        
                         
                      <script>
                         document.addEventListener('DOMContentLoaded', function() {
@@ -257,7 +257,7 @@ file that was distributed with this source code.
                         </div>
                         <div class="ec-off4Grid">
                             <div class="ec-off4Grid__cell">
-                                <button class="ec-blockBtn--action" type="submit" name="mode" value="confirm">{{ '同意する'|trans }}</button>
+                                <button class="ec-blockBtn--action" id="check-button"" type="submit" name="mode" value="confirm">{{ '同意する'|trans }}</button>
                                 <a class="ec-blockBtn--cancel" href="{{ url('homepage') }}">{{ '同意しない'|trans }}</a>
                             </div>
                         </div>
