@@ -119,40 +119,39 @@ file that was distributed with this source code.
                             </dd>
                         </dl>
                         <!-- 検証ボタンを追加 -->
+                        {# <button id="check-button">番号検証</button> #}
                         
-                        
-                     <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            console.log(123); 
-                            let mobileNumberInput = document.getElementById('mobile-number-input');
-                            let checkButton = document.getElementById('check-button');
-                            let errorMessageDiv = document.getElementById('error-message');
+                     
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                let mobileNumberInput = document.getElementById('mobile-number-input');
+                                let errorMessageDiv = document.getElementById('error-message');
 
-                            checkButton.addEventListener('click', function() {
-                                const regex = /^\d{3}-\d{4}-\d{4}$/; // 携帯番号の形式: 090-1234-5678
-                                if (!regex.test(mobileNumberInput.value)) {
-                                    errorMessage('携帯電話番号の形式が正しくありません。', true);
-                                } else {
-                                    errorMessage('', false); // エラーメッセージをクリア
-                                }
+                                mobileNumberInput.addEventListener('input', function() {
+                                    const regex = /^\d{3}-\d{4}-\d{4}$/; // 携帯番号の形式: 090-1234-5678
+                                    if (!regex.test(mobileNumberInput.value)) {
+                                        errorMessage('携帯電話番号の形式が正しくありません。', true);
+                                    } else {
+                                        errorMessage('', false); // エラーメッセージをクリア
+                                    }
+                                });
                             });
-                        });
 
-                        function errorMessage(message, hasError) {
-                            let errorMessageDiv = document.getElementById('error-message');
-                            let mobileNumberInput = document.getElementById('mobile-number-input');
+                            function errorMessage(message, hasError) {
+                                let errorMessageDiv = document.getElementById('error-message');
+                                let mobileNumberInput = document.getElementById('mobile-number-input');
 
-                            if (hasError) {
-                                mobileNumberInput.setCustomValidity(message);
-                                errorMessageDiv.textContent = message;
-                                errorMessageDiv.style.backgroundColor = 'red';
-                            } else {
-                                mobileNumberInput.setCustomValidity('');
-                                errorMessageDiv.textContent = '';
-                                errorMessageDiv.style.backgroundColor = '';
+                                if (hasError) {
+                                    mobileNumberInput.setCustomValidity(message);
+                                    errorMessageDiv.textContent = message;
+                                    errorMessageDiv.className = 'error'; // エラー表示
+                                } else {
+                                    mobileNumberInput.setCustomValidity('');
+                                    errorMessageDiv.textContent = '';
+                                    errorMessageDiv.className = ''; // エラースタイルをクリア
+                                }
                             }
-                        }
-                    </script>
+                        </script>
                     
                         
                         <dl>
