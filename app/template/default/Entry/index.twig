@@ -108,52 +108,49 @@ file that was distributed with this source code.
                                 </div>
                             </dd>
                         </dl>
-                     <dl>
-    <dt>携帯電話番号:</dt>
-    <dd>
-        <div class="ec-telInput" id="mobile-number-container">
-            <input type="text" name="mobile_number" id="mobile-number-input">
-            <div id="error-message"></div>
-        </div>
-    </dd>
-</dl>
-<button id="check-button">番号検証</button>
+                       <dl>
+                            <dt>携帯電話番号:</dt>
+                            <dd>
+                                <div class="ec-telInput" id="mobile-number-container">
+                                    <!-- 仮のinputタグを設置、name属性を追加 -->
+                                    <input type="text" name="mobile_number" id="mobile-number-input">
+                                    <div id="error-message"></div>
+                                </div>
+                            </dd>
+                        </dl>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                console.log(123);
+                                let mobileNumberInput = document.getElementById('mobile-number-input');
+                                let errorMessageDiv = document.getElementById('error-message');
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let mobileNumberInput = document.getElementById('mobile-number-input');
-        let errorMessageDiv = document.getElementById('error-message');
+                                mobileNumberInput.addEventListener('input', function() {
+                                    const regex = /^\d{3}-\d{4}-\d{4}$/; // 携帯番号の形式: 090-1234-5678
+                                    if (!regex.test(mobileNumberInput.value)) {
+                                        errorMessage('携帯電話番号の形式が正しくありません。', true);
+                                        mobileNumberInput.style.backgroundColor = 'red';
+                                    } else {
+                                        errorMessage('', false); // エラーメッセージをクリア
+                                        mobileNumberInput.style.backgroundColor = 'white';
+                                    }
+                                    
+                                });
+                            });
+                            function errorMessage(message, hasError) {
+                                let errorMessageDiv = document.getElementById('error-message');
+                                let mobileNumberInput = document.getElementById('mobile-number-input');
 
-        mobileNumberInput.addEventListener('input', function() {
-            const regex = /^\d{3}-\d{4}-\d{4}$/; // 携帯番号の形式: 090-1234-5678
-            if (!regex.test(mobileNumberInput.value)) {
-                errorMessage('携帯電話番号の形式が正しくありません。', true);
-                mobileNumberInput.style.backgroundColor = 'red'; // 背景色を赤に設定
-            } else {
-                errorMessage('', false); // エラーメッセージをクリア
-                mobileNumberInput.style.backgroundColor = ''; // 背景色をクリア
-            }
-        });
-    });
-
-    function errorMessage(message, hasError) {
-        let errorMessageDiv = document.getElementById('error-message');
-        let mobileNumberInput = document.getElementById('mobile-number-input');
-
-        if (hasError) {
-            mobileNumberInput.setCustomValidity(message);
-            errorMessageDiv.textContent = message;
-            errorMessageDiv.className = 'error'; // エラー表示
-        } else {
-            mobileNumberInput.setCustomValidity('');
-            errorMessageDiv.textContent = '';
-            errorMessageDiv.className = ''; // エラースタイルをクリア
-        }
-    }
-</script>
-
-                    
-                        
+                                if (hasError) {
+                                    mobileNumberInput.setCustomValidity(message);
+                                    errorMessageDiv.textContent = message;
+                                    errorMessageDiv.className = 'error'; // エラー表示
+                                } else {
+                                    mobileNumberInput.setCustomValidity('');
+                                    errorMessageDiv.textContent = '';
+                                    errorMessageDiv.className = ''; // エラースタイルをクリア
+                                }
+                            }
+                        </script>
                         <dl>
                             <dt>
                                 {{ form_label(form.email, 'メールアドレス', { 'label_attr': { 'class': 'ec-label' }}) }}
