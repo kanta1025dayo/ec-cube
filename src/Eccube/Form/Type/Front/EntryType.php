@@ -75,12 +75,12 @@ class EntryType extends AbstractType
             ->add('phone_number', PhoneNumberType::class, [
                 'required' => true,
             ])
-//           ->add('mobile_number', TextType::class, [
-//     'required' => true,
-//     'constraints' => [
-//         new Assert\NotBlank(['message' => '携帯電話入力']),
-//     ],
-// ])
+            ->add('mobile_number', TextType::class, [
+                'required' => true,
+                'constraints' => [
+                    new Assert\NotBlank(['message' => '携帯電話入力']),
+                ],
+            ])
 
             ->add('email', RepeatedEmailType::class)
             ->add('plain_password', RepeatedPasswordType::class)

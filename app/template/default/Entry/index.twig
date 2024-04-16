@@ -113,14 +113,14 @@ file that was distributed with this source code.
                                 {{ form_label(form.mobile_number, '携帯電話番号', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
                             <dd>
-                                <div class="ec-telInput{{ has_errors(form.mobile_number)? ' error' }}">
+                                <div class="ec-telInput{{ has_errors(form.mobile_number) ? ' error' }}">
                                     {{ form_widget(form.mobile_number) }}
-                                    <div id="error-message">{{ form_errors(form.mobile_number) }}</div>
+                                    {{ form_errors(form.mobile_number) }}
                                 </div>
                             </dd>
                         </dl>
                         
-                    <script>
+                    {# <script>
                         document.addEventListener('DOMContentLoaded', function() {
                             console.log(123); 
                             let mobileNumberInput = document.querySelector('input[name="mobile_number"]');
@@ -150,7 +150,7 @@ file that was distributed with this source code.
                             errorMessageDiv.textContent = '正しい携帯電話番号を入力してください。 (例: 090-1234-5678)';
                             errorMessageDiv.style.backgroundColor = 'red'; // エラーメッセージの背景色を赤に設定
                         }
-                    </script>
+                    </script> #}
                     
                         
                         <dl>
