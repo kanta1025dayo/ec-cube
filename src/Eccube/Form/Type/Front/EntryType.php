@@ -76,7 +76,7 @@ class EntryType extends AbstractType
                 'required' => true,
             ])
             ->add('mobile_number', TextType::class, [
-                'pattern' => '/^(\+81\-?|\(0\))?9[0|1|7|8|9](\-?\d{4}){2}$/',
+                
                 'required' => true,
                 'constraints' => [
                     new Assert\NotBlank(['message' => '携帯電話入力']),
