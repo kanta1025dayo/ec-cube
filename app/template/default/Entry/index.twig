@@ -124,33 +124,35 @@ file that was distributed with this source code.
                      
                         <script>
                             document.addEventListener('DOMContentLoaded', function() {
-                                let mobileNumberInput = document.getElementById('mobile-number-input');
-                                let errorMessageDiv = document.getElementById('error-message');
+    let mobileNumberInput = document.getElementById('mobile-number-input');
+    let errorMessageDiv = document.getElementById('error-message');
 
-                                mobileNumberInput.addEventListener('input', function() {
-                                    const regex = /^\d{3}-\d{4}-\d{4}$/; // 携帯番号の形式: 090-1234-5678
-                                    if (!regex.test(mobileNumberInput.value)) {
-                                        errorMessage('携帯電話番号の形式が正しくありません。', true);
-                                        mobileNumberInput.style.backgroundColor = 'red';
-                                    } else {
-                                        errorMessage('', false); // エラーメッセージをクリア
-                                    }
-                                });
-                            });
-                            function errorMessage(message, hasError) {
-                                let errorMessageDiv = document.getElementById('error-message');
-                                let mobileNumberInput = document.getElementById('mobile-number-input');
+    mobileNumberInput.addEventListener('input', function() {
+        const regex = /^\d{3}-\d{4}-\d{4}$/; // 携帯番号の形式: 090-1234-5678
+        if (!regex.test(mobileNumberInput.value)) {
+            errorMessage('携帯電話番号の形式が正しくありません。', true);
+            mobileNumberInput.className = 'error-input'; // エラーがある場合、inputを赤色に
+        } else {
+            errorMessage('', false); // エラーメッセージをクリア
+            mobileNumberInput.className = ''; // エラーがない場合、inputの色をクリア
+        }
+    });
+});
 
-                                if (hasError) {
-                                    mobileNumberInput.setCustomValidity(message);
-                                    errorMessageDiv.textContent = message;
-                                    errorMessageDiv.className = 'error'; // エラー表示
-                                } else {
-                                    mobileNumberInput.setCustomValidity('');
-                                    errorMessageDiv.textContent = '';
-                                    errorMessageDiv.className = ''; // エラースタイルをクリア
-                                }
-                            }
+function errorMessage(message, hasError) {
+    let errorMessageDiv = document.getElementById('error-message');
+    let mobileNumberInput = document.getElementById('mobile-number-input');
+
+    if (hasError) {
+        mobileNumberInput.setCustomValidity(message);
+        errorMessageDiv.textContent = message;
+        errorMessageDiv.className = 'error'; // エラー表示
+    } else {
+        mobileNumberInput.setCustomValidity('');
+        errorMessageDiv.textContent = '';
+        errorMessageDiv.className = ''; // エラースタイルをクリア
+    }
+}
                         </script>
                     
                         
