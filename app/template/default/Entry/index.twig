@@ -131,6 +131,7 @@ file that was distributed with this source code.
                                 const regex = /^\d{3}-\d{4}-\d{4}$/; // 携帯番号の形式: 090-1234-5678
                                 if (!regex.test(mobileNumberInput.value)) {
                                     // フォームの検証が失敗した場合、エラーメッセージ関数を呼び出し
+                                    errorMessageDiv.style.backgroundColor = 'red'; 
                                     errorMessage('携帯電話番号の形式が正しくありません。');
                                 } else {
                                     // フォームの検証が成功した場合、エラーメッセージをクリア
@@ -147,7 +148,7 @@ file that was distributed with this source code.
                             // エラーメッセージと背景色を設定
                             mobileNumberInput.setCustomValidity('正しい携帯電話番号を入力してください。 (例: 090-1234-5678)');
                             errorMessageDiv.textContent = '正しい携帯電話番号を入力してください。 (例: 090-1234-5678)';
-                            //errorMessageDiv.style.backgroundColor = 'red'; // エラーメッセージの背景色を赤に設定
+                            errorMessageDiv.style.backgroundColor = 'red'; // エラーメッセージの背景色を赤に設定
                         }
                     </script>
                     
