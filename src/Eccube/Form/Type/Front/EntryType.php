@@ -78,8 +78,8 @@ class EntryType extends AbstractType
             ->add('mobile_number', TextType::class, [
                 'required' => true,
                 'constraints' => [
-                    new Assert\NotBlank(['message' => '携帯電話入力']),
-                    new Assert\Regex([
+                    // new Assert\NotBlank(['message' => '携帯電話入力']),
+                    new Assert\NotBlank([
                         'pattern' => '/^(\+81\-?|\(0\))?9[0|1|7|8|9](\-?\d{4}){2}$/',
                         'match' => false,
                         'message' => '日本国内の携帯番号を入力してください。'
