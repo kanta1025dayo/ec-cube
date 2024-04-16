@@ -113,9 +113,9 @@ file that was distributed with this source code.
                                 {{ form_label(form.mobile_number, '携帯電話番号', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
                             <dd>
-                                <div class="ec-telInput{{ has_errors(form.mobile_number) ? ' error' }}">
+                                <div class="ec-telInput{{ has_errors(form.mobile_number)? ' error' }}">
                                     {{ form_widget(form.mobile_number) }}
-                                    {{ form_errors(form.mobile_number) }}
+                                    <div id="error-message">{{ form_errors(form.mobile_number) }}</div>
                                 </div>
                             </dd>
                         </dl>
