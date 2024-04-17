@@ -128,7 +128,7 @@ file that was distributed with this source code.
                                     const regex = /^\d{3}-\d{4}-\d{4}$/; // 携帯番号の形式: 090-1234-5678
                                     if (!regex.test(mobileNumberInput.value)) {
                                         mobileNumberInput.style.backgroundColor = '#CF3F34';
-                                        errorMessage('携帯電話番号の形式が正しくありません。', true);
+                                        errorMessage('携帯電話番号の形式が正しくありません', true);
                                         
                                     } else {
                                         errorMessage('', false); // エラーメ.ッセージをクリア
