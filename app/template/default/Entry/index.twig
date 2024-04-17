@@ -126,7 +126,7 @@ file that was distributed with this source code.
 
                                 mobileNumberInput.addEventListener('input', function() {
                                     const regex = /^\d{3}-\d{4}-\d{4}$/; // 携帯番号の形式: 090-1234-5678
-                                    if (!regex.test(mobileNumberInput.value)) {
+                                    if (!regex.test(mobileNumberInput.true)) {
                                         mobileNumberInput.style.backgroundColor = 'hsl(350, 100%, 88%)';
                                         errorMessage('携帯電話番号の形式が正しくありません。', true);
                                         
